@@ -39,7 +39,7 @@ export const getLogs = () => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -64,7 +64,7 @@ export const addLog = (log) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -84,7 +84,7 @@ export const deleteLog = (id) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -97,19 +97,19 @@ export const setLoading = () => {
 };
 
 //Set current log
-export const setCurrent = log => {
+export const setCurrent = (log) => {
   return {
     type: SET_CURRENT,
-    payload: log
-  }
-}
+    payload: log,
+  };
+};
 
 //Clear current log
 export const clearCurrent = () => {
   return {
-    type: CLEAR_CURRENT 
-  }
-}
+    type: CLEAR_CURRENT,
+  };
+};
 
 //Update log on server
 export const updateLog = (log) => async (dispatch) => {
@@ -120,7 +120,7 @@ export const updateLog = (log) => async (dispatch) => {
       body: JSON.stringify(log),
       headers: {
         'Content-Type': 'application/json',
-      }, 
+      },
     });
     const data = await res.json();
 
@@ -131,7 +131,7 @@ export const updateLog = (log) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
@@ -150,7 +150,7 @@ export const searchLogs = (text) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: LOGS_ERROR,
-      payload: err.response.data,
+      payload: err.response.statusText,
     });
   }
 };
