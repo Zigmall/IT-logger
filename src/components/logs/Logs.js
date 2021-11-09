@@ -8,7 +8,6 @@ import { getLogs } from '../../actions/logActions';
 
 const Logs = ({ log: { logs, loading  }, getLogs }) => {
   
-
   useEffect(() => {
     getLogs();
     // eslint-disable-next-line
@@ -34,6 +33,7 @@ const Logs = ({ log: { logs, loading  }, getLogs }) => {
 
 Logs.prototypes = {
   log: PropTypes.object.isRequired,
+  getLogs: PropTypes.func.isRequired, 
 }
 
 const mapStateToProps = state => ({
