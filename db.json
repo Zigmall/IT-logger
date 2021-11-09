@@ -13,6 +13,13 @@
       "attention": false,
       "tech": "Sara Wilson",
       "date": "2021-11-09T15:15:21.310Z"
+    },
+    {
+      "message": "Changed network card in server 053",
+      "attention": false,
+      "tech": "Sara Wilson",
+      "date": "2021-11-09T15:39:36.491Z",
+      "id": 4
     }
   ],
   "techs": [

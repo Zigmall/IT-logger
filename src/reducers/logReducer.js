@@ -7,6 +7,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_LOG,
+  SEARCH_LOGS,
 } from '../actions/types';
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   error: null,
 };
 
+// eslint-disable-next-line
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_LOG:
@@ -64,6 +66,11 @@ export default (state = initialState, action) => {
           log.id === action.payload.id ? action.payload : log
         ),
       };
+      case SEARCH_LOGS:
+        return {
+          ...state,
+          logs: action.payload
+        }
     default:
       return state;
   }
