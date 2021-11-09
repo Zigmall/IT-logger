@@ -1,11 +1,17 @@
-import { GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOG } from '../actions/types'
+import {
+  GET_LOGS,
+  SET_LOADING,
+  LOGS_ERROR,
+  ADD_LOG,
+  DELETE_LOG,
+} from '../actions/types';
 
 const initialState = {
-    logs: null,
-    current: null,
-    loading: false,
-    error: null
-}
+  logs: null,
+  current: null,
+  loading: false,
+  error: null,
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -13,25 +19,31 @@ export default (state = initialState, action) => {
       return {
         ...state,
         logs: [...state.logs, action.payload],
-        loading: false
-      }
+        loading: false,
+      };
     case GET_LOGS:
       return {
         ...state,
         logs: action.payload,
-        loading: false
-      }
+        loading: false,
+      };
     case SET_LOADING:
       return {
         ...state,
-        loading: true
-      }
-      case LOGS_ERROR:
-        console.log(action.payload);
-        return {
-          ...state,
-          error: action.payload
-        }
+        loading: true,
+      };
+    case LOGS_ERROR:
+      console.log(action.payload);
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case DELETE_LOG:
+      return {
+        ...state,
+        logs: state.logs.filter(log => log.id !== action.payload),
+        loading: false,
+      };
     default:
       return state;
   }

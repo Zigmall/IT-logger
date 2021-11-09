@@ -1,13 +1,6 @@
 {
   "logs": [
     {
-      "message": "Changed network card in server 003",
-      "attention": false,
-      "tech": "John Doe",
-      "date": "2021-11-08T12:57:05.688Z",
-      "id": 1
-    },
-    {
       "message": "Desktop 092 fixed",
       "attention": false,
       "tech": "John Doe",
